@@ -19,7 +19,7 @@ export function Footer() {
     {
       icon: Linkedin,
       title: "LinkedIn",
-      href: "https://linkedin.com/in/talha-rehman-7a3178221",
+      href: "https://www.linkedin.com/in/talha-rehman-7a3178221",
       color: "electric-cyan"
     },
     {
