@@ -17,7 +17,7 @@ export function CertificationSection() {
         </motion.h2>
 
         <motion.div
-          className="glow-card rounded-2xl p-8 backdrop-blur-sm text-center"
+          className="glow-card rounded-2xl p-8 backdrop-blur-sm text-center cursor-pointer"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -25,6 +25,15 @@ export function CertificationSection() {
           whileHover={{
             y: -10,
             transition: { duration: 0.3 },
+          }}
+          onClick={() => {
+            const link = document.createElement('a')
+            link.href = '/attached_assets/microsoft certificate_1756145381160.pdf'
+            link.target = '_blank'
+            link.rel = 'noopener noreferrer'
+            document.body.appendChild(link)
+            link.click()
+            document.body.removeChild(link)
           }}
           data-testid="microsoft-certification-card"
         >
