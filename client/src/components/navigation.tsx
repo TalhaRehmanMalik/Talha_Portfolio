@@ -30,7 +30,6 @@ export function Navigation() {
     { name: "About", id: "about" },
     { name: "Projects", id: "projects" },
     { name: "Skills", id: "skills" },
-    { name: "Contact", id: "contact" },
   ]
 
   return (
@@ -178,7 +177,6 @@ export function Navigation() {
             { icon: "👨‍💻", id: "about" },
             { icon: "🚀", id: "projects" },
             { icon: "⚡", id: "skills" },
-            { icon: "📧", id: "contact" },
           ].map((item) => (
             <motion.button
               key={item.id}
