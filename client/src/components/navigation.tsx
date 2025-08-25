@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { useTheme } from "@/components/theme-provider"
-import { Moon, Sun, Menu, X } from "lucide-react"
+import { Moon, Sun, Menu, X, Download } from "lucide-react"
 import { motion } from "framer-motion"
 
 export function Navigation() {
@@ -71,6 +71,24 @@ export function Navigation() {
                     {link.name}
                   </motion.button>
                 ))}
+                
+                <motion.button
+                  onClick={() => {
+                    const link = document.createElement('a')
+                    link.href = '/attached_assets/Talha Rehman CV.pdf'
+                    link.download = 'Talha_Rehman_CV.pdf'
+                    document.body.appendChild(link)
+                    link.click()
+                    document.body.removeChild(link)
+                  }}
+                  className="flex items-center gap-2 px-4 py-2 bg-electric-orange/20 border border-electric-orange text-electric-orange rounded-lg hover:bg-electric-orange/30 transition-all font-medium"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  data-testid="nav-download-cv"
+                >
+                  <Download size={16} />
+                  Download CV
+                </motion.button>
               </div>
             </div>
 
@@ -124,6 +142,23 @@ export function Navigation() {
                   {link.name}
                 </button>
               ))}
+              
+              <button
+                onClick={() => {
+                  const link = document.createElement('a')
+                  link.href = '/attached_assets/Talha Rehman CV.pdf'
+                  link.download = 'Talha_Rehman_CV.pdf'
+                  document.body.appendChild(link)
+                  link.click()
+                  document.body.removeChild(link)
+                  setIsMobileMenuOpen(false)
+                }}
+                className="flex items-center gap-2 px-3 py-2 text-base font-medium text-electric-orange hover:bg-electric-orange/20 transition-colors w-full text-left rounded-lg"
+                data-testid="mobile-nav-download-cv"
+              >
+                <Download size={16} />
+                Download CV
+              </button>
             </div>
           </motion.div>
         )}
