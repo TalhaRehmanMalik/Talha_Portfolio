@@ -11,8 +11,8 @@ const projects = [
       { label: "Validation Accuracy", value: "97.92%", color: "electric-cyan" }
     ],
     icon: TrendingUp,
-    github: "#",
-    demo: "#"
+    github: "https://github.com/TalhaRehmanMalik",
+    demo: "https://github.com/TalhaRehmanMalik"
   },
   {
     title: "Heart Disease Prediction System",
@@ -22,8 +22,8 @@ const projects = [
       { label: "Prediction Accuracy", value: "~90%", color: "cyber-gold" }
     ],
     icon: Heart,
-    github: "#",
-    demo: "#"
+    github: "https://github.com/TalhaRehmanMalik",
+    demo: "https://github.com/TalhaRehmanMalik"
   },
   {
     title: "Movie Recommender System",
@@ -33,8 +33,8 @@ const projects = [
       { label: "Approach", value: "Collaborative Filtering", color: "neon-purple" }
     ],
     icon: Film,
-    github: "#",
-    demo: "#"
+    github: "https://github.com/TalhaRehmanMalik",
+    demo: "https://github.com/TalhaRehmanMalik"
   }
 ]
 

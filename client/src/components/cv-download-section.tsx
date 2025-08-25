@@ -3,64 +3,13 @@ import { Download, FileText } from "lucide-react"
 
 export function CVDownloadSection() {
   const handleDownload = () => {
-    // Create a blob with sample CV content for demonstration
-    const cvContent = `
-TALHA REHMAN
-talharehman41061@gmail.com | +92-321-4361397
-linkedin.com/in/talha-rehman-7a3178221 | github.com/TalhaRehmanMalik
-
-SUMMARY
-Motivated and detail-oriented Information Technology undergraduate seeking an AI/ML internship opportunity.
-Skilled in developing data-driven solutions using Python, TensorFlow, and Scikit-learn. Experienced in image
-classification, predictive modeling, and model evaluation. Quick learner with strong problem-solving skills and a
-passion for real-world applications of artificial intelligence.
-
-EDUCATION
-• University of the Punjab
-  Bachelor of Science in Information Technology                                                           Expected 2026
-• Superior College, Lahore
-  Intermediate in Computer Science                                                                         2019 — 2021
-
-SKILLS
-Languages: Python, C, C++, OOP
-ML AI: Machine Learning, Deep Learning, Convolutional Neural Networks (CNN), Model Training, Evaluation,
-Supervised/Unsupervised Learning
-Tools Libraries: TensorFlow, Keras, Scikit-learn, Pandas, NumPy, Matplotlib, Seaborn, OpenCV, Jupyter Note-
-book, Streamlit, Google Colab
-Databases: MySQL
-Other: Data Preprocessing, Feature Selection, Cross-Validation
-
-PROJECTS
-Potato Disease Classification                                                     TensorFlow, CNN, Data Augmentation
-Developed a deep learning model using CNN to classify potato leaf diseases from images. Trained on a Kaggle dataset
-with real-time image input support. Applied data augmentation techniques such as flipping and rotation. Achieved 94.17%
-test accuracy and 97.92% validation accuracy. Saved model in Keras format and visualized predictions for multiple disease
-classes.
-
-Heart Disease Prediction System                                           Python, Pandas, Scikit-learn, Logistic Regression
-Designed a machine learning model using logistic regression to predict heart disease from patient data. Processed and
-analyzed 13 clinical features including cholesterol, blood pressure, and chest pain type. Used stratified train-test split for
-balanced evaluation and achieved an accuracy of ~90%. Performed feature encoding, null value checks, and created a
-predictive pipeline with result evaluation.
-
-Movie Recommender System                                                                 Python, Pandas, Cosine Similarity
-Built a collaborative filtering recommendation system using a user-movie rating matrix. Used cosine similarity to find similar
-users and suggest movies. Processed data using pandas and NumPy to generate relevant movie recommendations for each
-user.
-
-CERTIFICATION
-• Microsoft Certified: Azure AI Fundamentals
-    `
-
-    const blob = new Blob([cvContent], { type: 'text/plain' })
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = 'Talha_Rehman_CV.txt'
-    document.body.appendChild(a)
-    a.click()
-    document.body.removeChild(a)
-    URL.revokeObjectURL(url)
+    // Download the actual CV PDF
+    const link = document.createElement('a')
+    link.href = '/attached_assets/talha rehman cv_1756144048397.pdf'
+    link.download = 'Talha_Rehman_CV.pdf'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
   }
 
   return (

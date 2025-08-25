@@ -8,10 +8,10 @@ const skillsData = [
     icon: Code,
     color: "electric-orange",
     skills: [
-      { name: "Python", percentage: 85 },
-      { name: "C++", percentage: 75 },
+      { name: "Python", percentage: 80 },
       { name: "C", percentage: 70 },
-      { name: "OOP", percentage: 80 }
+      { name: "C++", percentage: 70 },
+      { name: "OOP", percentage: 75 }
     ]
   },
   {
@@ -19,11 +19,13 @@ const skillsData = [
     icon: Brain,
     color: "electric-cyan",
     skills: [
-      { name: "Machine Learning", percentage: 80 },
-      { name: "Deep Learning", percentage: 75 },
-      { name: "CNN", percentage: 70 },
+      { name: "Machine Learning", percentage: 75 },
+      { name: "Deep Learning", percentage: 70 },
+      { name: "Convolutional Neural Networks (CNN)", percentage: 70 },
       { name: "Model Training", percentage: 75 },
-      { name: "Model Evaluation", percentage: 80 }
+      { name: "Evaluation", percentage: 75 },
+      { name: "Supervised Learning", percentage: 80 },
+      { name: "Unsupervised Learning", percentage: 70 }
     ]
   },
   {
@@ -31,17 +33,17 @@ const skillsData = [
     icon: Wrench,
     color: "neon-purple",
     skills: [
-      { name: "TensorFlow", percentage: 75 },
+      { name: "TensorFlow", percentage: 70 },
       { name: "Keras", percentage: 70 },
-      { name: "Scikit-learn", percentage: 80 },
-      { name: "Pandas", percentage: 85 },
-      { name: "NumPy", percentage: 80 },
+      { name: "Scikit-learn", percentage: 70 },
+      { name: "Pandas", percentage: 80 },
+      { name: "NumPy", percentage: 75 },
       { name: "Matplotlib", percentage: 70 },
       { name: "Seaborn", percentage: 65 },
       { name: "OpenCV", percentage: 65 },
-      { name: "Jupyter Notebook", percentage: 90 },
+      { name: "Jupyter Notebook", percentage: 85 },
       { name: "Streamlit", percentage: 60 },
-      { name: "Google Colab", percentage: 85 }
+      { name: "Google Colab", percentage: 80 }
     ]
   }
 ]
@@ -167,17 +169,42 @@ export function SkillsSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
           data-testid="additional-skills"
         >
-          <h3 className="text-2xl font-bold mb-6 text-cyber-gold">Additional Skills</h3>
+          <h3 className="text-2xl font-bold mb-6 text-cyber-gold">Databases & Other Skills</h3>
           <div className="flex flex-wrap gap-4 justify-center">
-            {["Data Preprocessing", "Feature Selection", "Cross-Validation", "MySQL", "Supervised Learning", "Unsupervised Learning"].map((skill, index) => (
-              <motion.span
+            {[
+              { name: "MySQL", percentage: 70 },
+              { name: "Data Preprocessing", percentage: 80 },
+              { name: "Feature Selection", percentage: 75 },
+              { name: "Cross-Validation", percentage: 75 }
+            ].map((skill, index) => (
+              <div
                 key={index}
-                className="px-4 py-2 bg-cyber-gold/20 text-cyber-gold rounded-lg border border-cyber-gold/30 font-mono"
-                whileHover={{ scale: 1.1, backgroundColor: "rgba(251, 191, 36, 0.3)" }}
+                className="skill-item relative"
+                onMouseEnter={() => setHoveredSkill(`additional-${index}`)}
+                onMouseLeave={() => setHoveredSkill(null)}
                 data-testid={`additional-skill-${index}`}
               >
-                {skill}
-              </motion.span>
+                <motion.span
+                  className="px-4 py-2 bg-cyber-gold/20 text-cyber-gold rounded-lg border border-cyber-gold/30 font-mono cursor-pointer transition-all hover:bg-cyber-gold/30"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {skill.name}
+                </motion.span>
+                
+                {hoveredSkill === `additional-${index}` && (
+                  <motion.div
+                    className="absolute -top-12 left-1/2 transform -translate-x-1/2 px-3 py-2 bg-dark-slate/95 border border-cyber-gold text-cyber-gold rounded-lg text-sm font-semibold whitespace-nowrap z-10"
+                    initial={{ opacity: 0, y: 5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 5 }}
+                    data-testid={`additional-skill-tooltip-${index}`}
+                  >
+                    {skill.name} {skill.percentage}%
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-cyber-gold" />
+                  </motion.div>
+                )}
+              </div>
             ))}
           </div>
         </motion.div>
