@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import { Award, Shield } from "lucide-react"
+import { Award, Shield, Download } from "lucide-react"
 
 export function CertificationSection() {
   return (
@@ -78,6 +78,25 @@ export function CertificationSection() {
             <Award className="mr-2" size={20} />
             <span className="font-semibold">Verified Credential</span>
           </motion.div>
+
+          <motion.button
+            className="mt-6 px-6 py-3 bg-electric-orange/20 border-2 border-electric-orange text-electric-orange rounded-lg font-semibold hover:bg-electric-orange/30 transition-all flex items-center gap-2 mx-auto"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={(e) => {
+              e.stopPropagation()
+              const link = document.createElement('a')
+              link.href = '/attached_assets/microsoft certificate_1756145381160.pdf'
+              link.download = 'Microsoft_Azure_AI_Fundamentals_Certificate_Talha_Rehman.pdf'
+              document.body.appendChild(link)
+              link.click()
+              document.body.removeChild(link)
+            }}
+            data-testid="download-certificate-button"
+          >
+            <Download size={20} />
+            Download Certificate
+          </motion.button>
         </motion.div>
       </div>
     </section>
