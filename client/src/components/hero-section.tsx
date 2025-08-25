@@ -14,7 +14,7 @@ const backgroundImages = [
 export function HeroSection() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [typingText, setTypingText] = useState("")
-  const fullText = "Information Technology Undergraduate | Aspiring ML Engineer"
+  const fullText = "Information Technology Undergraduate | Aspiring Machine Learning Engineer"
 
   useEffect(() => {
     const imageInterval = setInterval(() => {
