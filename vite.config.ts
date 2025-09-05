@@ -1,11 +1,7 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import path from "path";
-
 export default defineConfig({
   plugins: [react()],
-  root: "client",             // 👈 project root = client
-  base: "./",                 // 👈 fix for blank page on Vercel
+  root: "client", 
+  base: "./",              // relative paths
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "client/src"),
@@ -14,7 +10,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: "../dist",        // 👈 build output at repo root /dist
+    outDir: path.resolve(__dirname, "dist"), // absolute path for Vercel
     emptyOutDir: true,
   },
 });
