@@ -133,14 +133,15 @@ export function HeroSection() {
             View My Work
           </motion.button>
           <motion.button
-            onClick={() => scrollToSection("contact")}
-            className="px-8 py-4 border-2 border-electric-orange text-electric-orange font-bold rounded-lg hover:bg-electric-orange hover:text-dark-slate transition-all"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            data-testid="button-lets-connect"
-          >
-            Let's Connect
-          </motion.button>
+  onClick={() => scrollToSection("skills")}
+  className="px-8 py-4 border-2 border-electric-orange text-electric-orange font-bold rounded-lg hover:bg-electric-orange hover:text-dark-slate transition-all"
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  data-testid="button-view-skills"
+>
+  View Skills
+</motion.button>
+
         </motion.div>
       </div>
 

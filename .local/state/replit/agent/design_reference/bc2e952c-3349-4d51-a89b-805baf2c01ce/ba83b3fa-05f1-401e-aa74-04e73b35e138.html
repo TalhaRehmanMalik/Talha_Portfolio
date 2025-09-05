@@ -1,0 +1,501 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talha Rehman - ML Engineer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#fff7ed',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
+    <!-- @COMPONENT: NavigationBar -->
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-bold text-gray-900">Talha Rehman</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors duration-200">Home</a>
+                        <a href="#about" class="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors duration-200">About</a>
+                        <a href="#projects" class="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors duration-200">Projects</a>
+                        <a href="#skills" class="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors duration-200">Skills</a>
+                        <a href="#contact" class="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors duration-200">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-primary-600 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 text-gray-700 hover:text-primary-600 text-base font-medium">Home</a>
+                <a href="#about" class="block px-3 py-2 text-gray-700 hover:text-primary-600 text-base font-medium">About</a>
+                <a href="#projects" class="block px-3 py-2 text-gray-700 hover:text-primary-600 text-base font-medium">Projects</a>
+                <a href="#skills" class="block px-3 py-2 text-gray-700 hover:text-primary-600 text-base font-medium">Skills</a>
+                <a href="#contact" class="block px-3 py-2 text-gray-700 hover:text-primary-600 text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <!-- @END_COMPONENT: NavigationBar -->
+
+    <!-- @COMPONENT: HeroSection -->
+    <!-- Hero Section -->
+    <section id="home" class="pt-20 pb-16 bg-gradient-to-br from-white to-gray-50 min-h-screen flex items-center">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+                        Hi, I'm <span class="text-primary-600">Talha Rehman</span>
+                    </h1>
+                    <p class="text-xl sm:text-2xl text-gray-600 mb-8 font-medium" data-bind="hero.tagline">
+                        Aspiring Machine Learning Engineer | Python Developer | Deep Learning Enthusiast
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed" data-mock="true">
+                        Passionate about building intelligent systems that solve real-world problems. Currently developing my expertise in machine learning, deep learning, and Python development to make a meaningful impact in the tech industry.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#projects" class="bg-primary-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors duration-200 text-center">
+                            View My Work
+                        </a>
+                        <a href="#contact" class="border-2 border-primary-600 text-primary-600 px-8 py-3 rounded-lg font-semibold hover:bg-primary-600 hover:text-white transition-colors duration-200 text-center">
+                            Get In Touch
+                        </a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <!-- Machine learning development workspace image -->
+                    <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
+                         alt="Machine learning development workspace" 
+                         class="rounded-2xl shadow-2xl w-full h-auto" />
+                    <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg hidden lg:block">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                            <span class="text-sm font-medium text-gray-700">Available for opportunities</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: HeroSection -->
+
+    <!-- @COMPONENT: AboutSection -->
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">About Me</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Dedicated to leveraging technology to create innovative solutions
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <!-- Professional workspace setup image -->
+                    <img src="https://pixabay.com/get/gfd318b410c6eb7c80ced17beaa745d547cce507196cf7f21daf474319dcad9c76b1713d052ca04ab57f8fba088e1a2ef5cea3e53d4d8eda4a10cc50f24275c71_1280.jpg" 
+                         alt="Professional workspace setup with coding environment" 
+                         class="rounded-xl shadow-lg w-full h-auto" />
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-gradient-to-r from-primary-50 to-orange-50 p-6 rounded-xl border border-primary-100">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Career Goal</h3>
+                        <p class="text-gray-700 leading-relaxed" data-bind="about.careerGoal">
+                            To become an ML Engineer and secure a Python Developer Internship where I can apply my passion for machine learning and contribute to innovative projects that make a real difference.
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-semibold text-gray-900">Background</h3>
+                        <p class="text-gray-600 leading-relaxed" data-mock="true">
+                            I'm a dedicated student with a strong foundation in computer science and a particular passion for machine learning and artificial intelligence. My journey in tech began with Python programming and has evolved to encompass deep learning, data science, and software development.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed" data-mock="true">
+                            Through hands-on projects and continuous learning, I've developed expertise in building machine learning models, creating practical applications, and solving complex problems with code. I'm always eager to take on new challenges and contribute to meaningful projects.
+                        </p>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm font-medium">Problem Solver</span>
+                        <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm font-medium">Quick Learner</span>
+                        <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm font-medium">Team Player</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: AboutSection -->
+
+    <!-- @COMPONENT: ProjectsSection -->
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Featured Projects</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Here are some of my recent projects that showcase my skills in machine learning and Python development
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- @MAP: projects.map(project => ( -->
+                <!-- Project 1: Potato Disease Classification -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="relative overflow-hidden">
+                        <!-- Machine learning visualization for potato disease classification -->
+                        <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" 
+                             alt="Data science visualization and machine learning models" 
+                             class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition-all duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3" data-bind="project1.title">Potato Disease Classification</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed" data-bind="project1.description">
+                            CNN model for plant health prediction using deep learning techniques to classify potato diseases and help farmers make informed decisions about crop management.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium">TensorFlow</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-medium">CNN</span>
+                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs font-medium">Computer Vision</span>
+                        </div>
+                        <a href="https://github.com/TalhaRehmanMalik" 
+                           target="_blank"
+                           class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium transition-colors duration-200">
+                            <i class="fab fa-github mr-2"></i>
+                            View on GitHub
+                            <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2: Expense Tracker -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="relative overflow-hidden">
+                        <!-- Python coding environment for expense tracking application -->
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" 
+                             alt="Python coding environment with data analysis" 
+                             class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition-all duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3" data-bind="project2.title">Expense Tracker</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed" data-bind="project2.description">
+                            Python CLI app to manage daily expenses with features for adding, viewing, and analyzing spending patterns to help users maintain better financial habits.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs font-medium">Python</span>
+                            <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs font-medium">CLI</span>
+                            <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded text-xs font-medium">Data Management</span>
+                        </div>
+                        <a href="https://github.com/TalhaRehmanMalik" 
+                           target="_blank"
+                           class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium transition-colors duration-200">
+                            <i class="fab fa-github mr-2"></i>
+                            View on GitHub
+                            <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ProjectsSection -->
+
+    <!-- @COMPONENT: SkillsSection -->
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Technical Skills</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Technologies and tools I work with to bring ideas to life
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <!-- Python coding environment and development setup -->
+                    <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
+                         alt="Python development environment with code on multiple screens" 
+                         class="rounded-xl shadow-lg w-full h-auto" />
+                </div>
+                <div>
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Programming Languages</h3>
+                            <div class="flex flex-wrap gap-3">
+                                <!-- @MAP: programmingSkills.map(skill => ( -->
+                                <span class="bg-gradient-to-r from-primary-500 to-primary-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-200" data-bind="skills.python">
+                                    <i class="fab fa-python mr-2"></i>Python
+                                </span>
+                                <!-- @END_MAP )) -->
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Machine Learning & AI</h3>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-200" data-bind="skills.ml">
+                                    <i class="fas fa-brain mr-2"></i>Machine Learning
+                                </span>
+                                <span class="bg-gradient-to-r from-purple-500 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-200" data-bind="skills.dl">
+                                    <i class="fas fa-network-wired mr-2"></i>Deep Learning
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Frameworks & Libraries</h3>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-200" data-bind="skills.tensorflow">
+                                    <i class="fas fa-cogs mr-2"></i>TensorFlow
+                                </span>
+                                <span class="bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-200" data-bind="skills.sklearn">
+                                    <i class="fas fa-chart-line mr-2"></i>Scikit-learn
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-gray-50 to-orange-50 p-6 rounded-xl border border-orange-100">
+                            <div class="flex items-start space-x-3">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-lightbulb text-primary-600 text-xl mt-1"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 mb-2">Currently Learning</h4>
+                                    <p class="text-gray-600 text-sm" data-mock="true">
+                                        Advanced neural networks, MLOps practices, and cloud deployment strategies to enhance my machine learning engineering capabilities.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: SkillsSection -->
+
+    <!-- @COMPONENT: ContactSection -->
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Let's Connect</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    I'm always interested in new opportunities and collaborations. Feel free to reach out!
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- LinkedIn Card -->
+                <div class="bg-white rounded-xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
+                        <i class="fab fa-linkedin-in text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Professional Network</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Connect with me on LinkedIn to stay updated on my professional journey and opportunities.
+                    </p>
+                    <a href="https://www.linkedin.com/in/talha-rehman-7a3178221" 
+                       target="_blank"
+                       class="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200">
+                        <i class="fab fa-linkedin-in mr-2"></i>
+                        View LinkedIn Profile
+                    </a>
+                </div>
+                
+                <!-- Email Card -->
+                <div class="bg-white rounded-xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-200 transition-colors duration-300">
+                        <i class="fas fa-envelope text-primary-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Direct Contact</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Have a specific opportunity or question? Send me an email and I'll get back to you soon.
+                    </p>
+                    <a href="mailto:talharehman41061@gmail.com" 
+                       class="inline-flex items-center bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors duration-200">
+                        <i class="fas fa-envelope mr-2"></i>
+                        Send Email
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Additional Contact Info -->
+            <div class="mt-12 text-center">
+                <div class="bg-white rounded-xl shadow-lg p-8 max-w-2xl mx-auto">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Response Time</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="flex items-center justify-center space-x-3">
+                            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                            <span class="text-gray-600">Email: Within 24 hours</span>
+                        </div>
+                        <div class="flex items-center justify-center space-x-3">
+                            <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                            <span class="text-gray-600">LinkedIn: Within 48 hours</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 text-sm mt-4" data-mock="true">
+                        Currently available for internship opportunities and freelance projects
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ContactSection -->
+
+    <!-- @COMPONENT: Footer -->
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Talha Rehman</h3>
+                    <p class="text-gray-400 leading-relaxed" data-mock="true">
+                        Aspiring Machine Learning Engineer passionate about creating intelligent solutions for real-world problems.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors duration-200">About</a></li>
+                        <li><a href="#projects" class="text-gray-400 hover:text-white transition-colors duration-200">Projects</a></li>
+                        <li><a href="#skills" class="text-gray-400 hover:text-white transition-colors duration-200">Skills</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors duration-200">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/in/talha-rehman-7a3178221" 
+                           target="_blank"
+                           class="bg-gray-800 p-3 rounded-lg hover:bg-gray-700 transition-colors duration-200">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                        <a href="https://github.com/TalhaRehmanMalik" 
+                           target="_blank"
+                           class="bg-gray-800 p-3 rounded-lg hover:bg-gray-700 transition-colors duration-200">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="mailto:talharehman41061@gmail.com" 
+                           class="bg-gray-800 p-3 rounded-lg hover:bg-gray-700 transition-colors duration-200">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400" data-mock="true">
+                    © 2024 Talha Rehman. All rights reserved. Built with passion for machine learning and innovation.
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <script>
+        (function() {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Navbar background on scroll
+            window.addEventListener('scroll', function() {
+                const nav = document.querySelector('nav');
+                if (window.scrollY > 100) {
+                    nav.classList.add('backdrop-blur-sm', 'bg-white/95');
+                } else {
+                    nav.classList.remove('backdrop-blur-sm', 'bg-white/95');
+                }
+            });
+
+            // Intersection Observer for animation on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe sections for scroll animations
+            document.querySelectorAll('section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                observer.observe(section);
+            });
+
+            // Set initial state for hero section
+            document.querySelector('#home').style.opacity = '1';
+            document.querySelector('#home').style.transform = 'translateY(0)';
+
+            // TODO: Implement contact form functionality
+            // TODO: Add project filtering capabilities
+            // TODO: Implement dark mode toggle
+        })();
+    </script>
+</body>
+</html>

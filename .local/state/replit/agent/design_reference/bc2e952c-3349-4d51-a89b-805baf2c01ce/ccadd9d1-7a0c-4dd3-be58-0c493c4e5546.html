@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talha Rehman - ML Engineer & Python Developer</title>
+    <meta name="description" content="Aspiring Machine Learning Engineer specializing in Python development and Deep Learning. Portfolio showcasing innovative AI projects and technical expertise.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'dark-primary': '#0F0F0F',
+                        'dark-secondary': '#1A1A1A',
+                        'dark-accent': '#2A2A2A',
+                        'orange-primary': '#FF6B35',
+                        'orange-light': '#FF8C61',
+                        'text-primary': '#FFFFFF',
+                        'text-secondary': '#E5E5E5',
+                        'text-muted': '#6B7280',
+                    },
+                    animation: {
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'float': 'float 3s ease-in-out infinite',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'fade-in': 'fadeIn 1s ease-out',
+                        'typing': 'typing 3.5s steps(40, end), blink-caret .75s step-end infinite',
+                    },
+                    keyframes: {
+                        glow: {
+                            '0%': { boxShadow: '0 0 20px rgba(255, 107, 53, 0.5)' },
+                            '100%': { boxShadow: '0 0 40px rgba(255, 107, 53, 0.8)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        typing: {
+                            'from': { width: '0' },
+                            'to': { width: '100%' }
+                        },
+                        'blink-caret': {
+                            'from, to': { 'border-color': 'transparent' },
+                            '50%': { 'border-color': '#FF6B35' }
+                        }
+                    }
+                }
+            },
+            darkMode: 'class',
+        }
+    </script>
+    
+    <style>
+        .typing-animation {
+            border-right: 3px solid #FF6B35;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        
+        .custom-cursor {
+            cursor: none;
+        }
+        
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background: #FF6B35;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.2s ease;
+        }
+        
+        .cursor-outline {
+            width: 40px;
+            height: 40px;
+            border: 2px solid rgba(255, 107, 53, 0.3);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.3s ease;
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .project-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(255, 107, 53, 0.2);
+        }
+        
+        .tech-badge {
+            transition: all 0.3s ease;
+        }
+        
+        .tech-badge:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+        
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #FF6B35, #FF8C61);
+            z-index: 9999;
+            transition: width 0.3s ease;
+        }
+        
+        .section-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .section-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="bg-dark-primary text-text-primary font-inter dark custom-cursor overflow-x-hidden">
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-outline" id="cursor-outline"></div>
+    
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progress-bar" style="width: 0%"></div>
+    
+    <!-- Navigation -->
+    <!-- @COMPONENT: Navigation [fixed navigation with theme toggle] -->
+    <nav class="fixed top-0 w-full z-50 glass-effect">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold">
+                    <span class="text-orange-primary">T</span>alha
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-orange-primary transition-colors">Home</a>
+                    <a href="#about" class="hover:text-orange-primary transition-colors">About</a>
+                    <a href="#projects" class="hover:text-orange-primary transition-colors">Projects</a>
+                    <a href="#skills" class="hover:text-orange-primary transition-colors">Skills</a>
+                    <a href="#contact" class="hover:text-orange-primary transition-colors">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-lg hover:bg-dark-accent transition-colors">
+                        <i class="fas fa-moon" id="theme-icon"></i>
+                    </button>
+                    
+                    <!-- Mobile Menu Toggle -->
+                    <button class="md:hidden p-2 rounded-lg hover:bg-dark-accent transition-colors" id="mobile-menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="md:hidden mt-4 space-y-2 hidden" id="mobile-menu">
+                <a href="#home" class="block py-2 hover:text-orange-primary transition-colors">Home</a>
+                <a href="#about" class="block py-2 hover:text-orange-primary transition-colors">About</a>
+                <a href="#projects" class="block py-2 hover:text-orange-primary transition-colors">Projects</a>
+                <a href="#skills" class="block py-2 hover:text-orange-primary transition-colors">Skills</a>
+                <a href="#contact" class="block py-2 hover:text-orange-primary transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <!-- @END_COMPONENT: Navigation -->
+    
+    <!-- Hero Section -->
+    <!-- @COMPONENT: HeroSection [animated name reveal and typing effect] -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <!-- Neural network visualization background -->
+            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080" alt="Neural network abstract visualization" class="w-full h-full object-cover" data-mock-image="true" />
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-6 text-center z-10">
+            <div class="section-reveal">
+                <h1 class="text-6xl md:text-8xl font-black mb-6 animate-slide-up">
+                    <span class="text-orange-primary animate-glow">Talha</span>
+                    <br>
+                    <span class="text-text-primary">Rehman</span>
+                </h1>
+                
+                <div class="text-xl md:text-2xl text-text-secondary mb-8 max-w-4xl mx-auto">
+                    <div class="typing-animation">
+                        Aspiring Machine Learning Engineer | Python Developer | Deep Learning Enthusiast
+                    </div>
+                </div>
+                
+                <p class="text-lg text-text-muted mb-12 max-w-2xl mx-auto animate-fade-in">
+                    Transforming complex data into intelligent solutions through innovative machine learning and deep learning technologies.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                    <a href="#projects" class="bg-orange-primary hover:bg-orange-light px-8 py-4 rounded-xl font-semibold transition-all duration-300 animate-glow">
+                        View My Work
+                    </a>
+                    <a href="#contact" class="border-2 border-orange-primary text-orange-primary hover:bg-orange-primary hover:text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Floating Elements -->
+        <div class="absolute top-20 left-10 w-4 h-4 bg-orange-primary rounded-full animate-float opacity-70"></div>
+        <div class="absolute bottom-20 right-10 w-6 h-6 bg-orange-light rounded-full animate-float opacity-50" style="animation-delay: 1s;"></div>
+        <div class="absolute top-1/2 left-20 w-2 h-2 bg-orange-primary rounded-full animate-float opacity-60" style="animation-delay: 2s;"></div>
+    </section>
+    <!-- @END_COMPONENT: HeroSection -->
+    
+    <!-- About Section -->
+    <!-- @COMPONENT: AboutSection [clean typography and career objectives] -->
+    <section id="about" class="py-20 bg-dark-secondary">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="section-reveal">
+                <h2 class="text-4xl md:text-6xl font-bold text-center mb-16">
+                    About <span class="text-orange-primary">Me</span>
+                </h2>
+                
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="space-y-8">
+                        <div class="text-lg text-text-secondary leading-relaxed">
+                            <p class="mb-6">
+                                I'm a passionate aspiring Machine Learning Engineer with a deep fascination for artificial intelligence and its potential to solve real-world problems. My journey in technology began with curiosity about how machines can learn and make decisions.
+                            </p>
+                            <p class="mb-6">
+                                Currently pursuing advanced knowledge in deep learning, neural networks, and computer vision, I combine theoretical understanding with practical implementation skills in Python and popular ML frameworks.
+                            </p>
+                            <p>
+                                My goal is to contribute to breakthrough AI research while developing production-ready solutions that make a meaningful impact on society.
+                            </p>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-8">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-orange-primary mb-2">15+</div>
+                                <div class="text-text-muted">Projects Completed</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-orange-primary mb-2">3+</div>
+                                <div class="text-text-muted">Years Learning</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="relative">
+                        <!-- Modern developer workspace setup -->
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Modern developer workspace with multiple monitors" class="rounded-2xl shadow-2xl w-full h-auto" />
+                        <div class="absolute inset-0 bg-gradient-to-tr from-orange-primary/20 to-transparent rounded-2xl"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: AboutSection -->
+    
+    <!-- Projects Section -->
+    <!-- @COMPONENT: ProjectsSection [interactive cards with hover effects] -->
+    <section id="projects" class="py-20 bg-dark-primary">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="section-reveal">
+                <h2 class="text-4xl md:text-6xl font-bold text-center mb-16">
+                    Featured <span class="text-orange-primary">Projects</span>
+                </h2>
+                
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <!-- Project 1: Potato Disease Classification -->
+                    <div class="project-card bg-dark-secondary rounded-2xl p-8 border border-gray-800 hover:border-orange-primary/50">
+                        <div class="mb-6">
+                            <!-- Machine learning visualization dark theme -->
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" alt="Machine learning visualization with neural networks" class="w-full h-48 object-cover rounded-xl mb-4" />
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold mb-4 text-orange-primary">Potato Disease Classification</h3>
+                        <p class="text-text-secondary mb-6 leading-relaxed">
+                            Advanced CNN-based classification system for identifying potato plant diseases. Implemented using TensorFlow and Keras with custom data augmentation techniques achieving 95% accuracy.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="tech-badge px-3 py-1 bg-orange-primary/20 text-orange-primary rounded-full text-sm font-medium">Python</span>
+                            <span class="tech-badge px-3 py-1 bg-orange-primary/20 text-orange-primary rounded-full text-sm font-medium">TensorFlow</span>
+                            <span class="tech-badge px-3 py-1 bg-orange-primary/20 text-orange-primary rounded-full text-sm font-medium">CNN</span>
+                            <span class="tech-badge px-3 py-1 bg-orange-primary/20 text-orange-primary rounded-full text-sm font-medium">OpenCV</span>
+                        </div>
+                        
+                        <div class="flex gap-4">
+                            <a href="#" class="flex items-center gap-2 text-orange-primary hover:text-orange-light transition-colors" data-mock="true">
+                                <i class="fab fa-github"></i>
+                                <span>Source Code</span>
+                            </a>
+                            <a href="#" class="flex items-center gap-2 text-orange-primary hover:text-orange-light transition-colors" data-mock="true">
+                                <i class="fas fa-external-link-alt"></i>
+                                <span>Live Demo</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2: Expense Tracker -->
+                    <div class="project-card bg-dark-secondary rounded-2xl p-8 border border-gray-800 hover:border-orange-primary/50">
+                        <div class="mb-6">
+                            <!-- Professional coding environment -->
+                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" alt="Professional coding environment with Python code" class="w-full h-48 object-cover rounded-xl mb-4" />
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold mb-4 text-orange-primary">Expense Tracker CLI</h3>
+                        <p class="text-text-secondary mb-6 leading-relaxed">
+                            Comprehensive command-line expense tracking application with data visualization, budget analysis, and automated report generation. Features robust error handling and data persistence.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="tech-badge px-3 py-1 bg-orange-primary/20 text-orange-primary rounded-full text-sm font-medium">Python</span>
+                            <span class="tech-badge px-3 py-1 bg-orange-primary/20 text-orange-primary rounded-full text-sm font-medium">Pandas</span>
+                            <span class="tech-badge px-3 py-1 bg-orange-primary/20 text-orange-primary rounded-full text-sm font-medium">Matplotlib</span>
+                            <span class="tech-badge px-3 py-1 bg-orange-primary/20 text-orange-primary rounded-full text-sm font-medium">SQLite</span>
+                        </div>
+                        
+                        <div class="flex gap-4">
+                            <a href="#" class="flex items-center gap-2 text-orange-primary hover:text-orange-light transition-colors" data-mock="true">
+                                <i class="fab fa-github"></i>
+                                <span>Source Code</span>
+                            </a>
+                            <a href="#" class="flex items-center gap-2 text-orange-primary hover:text-orange-light transition-colors" data-mock="true">
+                                <i class="fas fa-external-link-alt"></i>
+                                <span>Documentation</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Additional Projects Grid -->
+                <div class="grid md:grid-cols-3 gap-6 mt-12">
+                    <div class="bg-dark-secondary rounded-xl p-6 border border-gray-800 hover:border-orange-primary/50 transition-all duration-300">
+                        <h4 class="text-lg font-semibold mb-3 text-orange-primary">Neural Style Transfer</h4>
+                        <p class="text-text-muted text-sm mb-4">Deep learning art generation using CNN architectures</p>
+                        <div class="flex gap-2">
+                            <span class="text-xs px-2 py-1 bg-orange-primary/20 text-orange-primary rounded">PyTorch</span>
+                            <span class="text-xs px-2 py-1 bg-orange-primary/20 text-orange-primary rounded">Computer Vision</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-dark-secondary rounded-xl p-6 border border-gray-800 hover:border-orange-primary/50 transition-all duration-300">
+                        <h4 class="text-lg font-semibold mb-3 text-orange-primary">Sentiment Analysis API</h4>
+                        <p class="text-text-muted text-sm mb-4">REST API for real-time text sentiment classification</p>
+                        <div class="flex gap-2">
+                            <span class="text-xs px-2 py-1 bg-orange-primary/20 text-orange-primary rounded">FastAPI</span>
+                            <span class="text-xs px-2 py-1 bg-orange-primary/20 text-orange-primary rounded">NLP</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-dark-secondary rounded-xl p-6 border border-gray-800 hover:border-orange-primary/50 transition-all duration-300">
+                        <h4 class="text-lg font-semibold mb-3 text-orange-primary">Data Visualization Dashboard</h4>
+                        <p class="text-text-muted text-sm mb-4">Interactive analytics dashboard with real-time data</p>
+                        <div class="flex gap-2">
+                            <span class="text-xs px-2 py-1 bg-orange-primary/20 text-orange-primary rounded">Streamlit</span>
+                            <span class="text-xs px-2 py-1 bg-orange-primary/20 text-orange-primary rounded">Plotly</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ProjectsSection -->
+    
+    <!-- Skills Section -->
+    <!-- @COMPONENT: SkillsSection [animated technology badges] -->
+    <section id="skills" class="py-20 bg-dark-secondary">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="section-reveal">
+                <h2 class="text-4xl md:text-6xl font-bold text-center mb-16">
+                    Technical <span class="text-orange-primary">Skills</span>
+                </h2>
+                
+                <div class="grid lg:grid-cols-3 gap-12">
+                    <!-- Machine Learning -->
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-orange-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-brain text-orange-primary text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-6">Machine Learning</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-text-secondary">TensorFlow/Keras</span>
+                                <div class="w-24 bg-dark-accent rounded-full h-2">
+                                    <div class="bg-orange-primary h-2 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-text-secondary">PyTorch</span>
+                                <div class="w-24 bg-dark-accent rounded-full h-2">
+                                    <div class="bg-orange-primary h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-text-secondary">Scikit-learn</span>
+                                <div class="w-24 bg-dark-accent rounded-full h-2">
+                                    <div class="bg-orange-primary h-2 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Programming -->
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-orange-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-code text-orange-primary text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-6">Programming</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-text-secondary">Python</span>
+                                <div class="w-24 bg-dark-accent rounded-full h-2">
+                                    <div class="bg-orange-primary h-2 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-text-secondary">SQL</span>
+                                <div class="w-24 bg-dark-accent rounded-full h-2">
+                                    <div class="bg-orange-primary h-2 rounded-full" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-text-secondary">JavaScript</span>
+                                <div class="w-24 bg-dark-accent rounded-full h-2">
+                                    <div class="bg-orange-primary h-2 rounded-full" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tools & Technologies -->
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-orange-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-tools text-orange-primary text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-6">Tools & Technologies</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-text-secondary">Git/GitHub</span>
+                                <div class="w-24 bg-dark-accent rounded-full h-2">
+                                    <div class="bg-orange-primary h-2 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-text-secondary">Docker</span>
+                                <div class="w-24 bg-dark-accent rounded-full h-2">
+                                    <div class="bg-orange-primary h-2 rounded-full" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-text-secondary">AWS/Cloud</span>
+                                <div class="w-24 bg-dark-accent rounded-full h-2">
+                                    <div class="bg-orange-primary h-2 rounded-full" style="width: 65%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Technology Badges -->
+                <div class="mt-16">
+                    <h3 class="text-2xl font-semibold text-center mb-8">Technology Stack</h3>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <span class="tech-badge px-6 py-3 bg-dark-accent rounded-xl font-medium hover:bg-orange-primary/20 hover:text-orange-primary transition-all duration-300">Python</span>
+                        <span class="tech-badge px-6 py-3 bg-dark-accent rounded-xl font-medium hover:bg-orange-primary/20 hover:text-orange-primary transition-all duration-300">TensorFlow</span>
+                        <span class="tech-badge px-6 py-3 bg-dark-accent rounded-xl font-medium hover:bg-orange-primary/20 hover:text-orange-primary transition-all duration-300">PyTorch</span>
+                        <span class="tech-badge px-6 py-3 bg-dark-accent rounded-xl font-medium hover:bg-orange-primary/20 hover:text-orange-primary transition-all duration-300">OpenCV</span>
+                        <span class="tech-badge px-6 py-3 bg-dark-accent rounded-xl font-medium hover:bg-orange-primary/20 hover:text-orange-primary transition-all duration-300">Pandas</span>
+                        <span class="tech-badge px-6 py-3 bg-dark-accent rounded-xl font-medium hover:bg-orange-primary/20 hover:text-orange-primary transition-all duration-300">NumPy</span>
+                        <span class="tech-badge px-6 py-3 bg-dark-accent rounded-xl font-medium hover:bg-orange-primary/20 hover:text-orange-primary transition-all duration-300">Matplotlib</span>
+                        <span class="tech-badge px-6 py-3 bg-dark-accent rounded-xl font-medium hover:bg-orange-primary/20 hover:text-orange-primary transition-all duration-300">Jupyter</span>
+                        <span class="tech-badge px-6 py-3 bg-dark-accent rounded-xl font-medium hover:bg-orange-primary/20 hover:text-orange-primary transition-all duration-300">FastAPI</span>
+                        <span class="tech-badge px-6 py-3 bg-dark-accent rounded-xl font-medium hover:bg-orange-primary/20 hover:text-orange-primary transition-all duration-300">PostgreSQL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: SkillsSection -->
+    
+    <!-- Contact Section -->
+    <!-- @COMPONENT: ContactSection [professional contact form with validation] -->
+    <section id="contact" class="py-20 bg-dark-primary">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="section-reveal">
+                <h2 class="text-4xl md:text-6xl font-bold text-center mb-16">
+                    Get In <span class="text-orange-primary">Touch</span>
+                </h2>
+                
+                <div class="grid lg:grid-cols-2 gap-16 items-start">
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-6">Let's Connect</h3>
+                            <p class="text-text-secondary text-lg leading-relaxed mb-8">
+                                I'm always excited to discuss new opportunities, collaborate on interesting projects, or simply chat about the latest developments in machine learning and AI.
+                            </p>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-orange-primary/20 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-envelope text-orange-primary"></i>
+                                </div>
+                                <div>
+                                    <div class="font-medium">Email</div>
+                                    <div class="text-text-secondary" data-mock="true">talha.rehman@email.com</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-orange-primary/20 rounded-xl flex items-center justify-center">
+                                    <i class="fab fa-linkedin text-orange-primary"></i>
+                                </div>
+                                <div>
+                                    <div class="font-medium">LinkedIn</div>
+                                    <div class="text-text-secondary" data-mock="true">linkedin.com/in/talha-rehman</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-orange-primary/20 rounded-xl flex items-center justify-center">
+                                    <i class="fab fa-github text-orange-primary"></i>
+                                </div>
+                                <div>
+                                    <div class="font-medium">GitHub</div>
+                                    <div class="text-text-secondary" data-mock="true">github.com/talha-rehman</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="pt-8">
+                            <h4 class="text-lg font-semibold mb-4">Available for:</h4>
+                            <ul class="space-y-2 text-text-secondary">
+                                <li class="flex items-center gap-2">
+                                    <i class="fas fa-check text-orange-primary text-sm"></i>
+                                    Machine Learning Consulting
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="fas fa-check text-orange-primary text-sm"></i>
+                                    Python Development Projects
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="fas fa-check text-orange-primary text-sm"></i>
+                                    Research Collaboration
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="fas fa-check text-orange-primary text-sm"></i>
+                                    Full-time Opportunities
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-dark-secondary rounded-2xl p-8 border border-gray-800">
+                        <form class="space-y-6" data-implementation="Should implement form validation and submission">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Full Name</label>
+                                <input type="text" class="w-full px-4 py-3 bg-dark-accent border border-gray-700 rounded-xl focus:outline-none focus:border-orange-primary transition-colors" placeholder="Your full name" data-mock="true">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Email Address</label>
+                                <input type="email" class="w-full px-4 py-3 bg-dark-accent border border-gray-700 rounded-xl focus:outline-none focus:border-orange-primary transition-colors" placeholder="your.email@example.com" data-mock="true">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Subject</label>
+                                <input type="text" class="w-full px-4 py-3 bg-dark-accent border border-gray-700 rounded-xl focus:outline-none focus:border-orange-primary transition-colors" placeholder="What's this about?" data-mock="true">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Message</label>
+                                <textarea rows="5" class="w-full px-4 py-3 bg-dark-accent border border-gray-700 rounded-xl focus:outline-none focus:border-orange-primary transition-colors resize-none" placeholder="Tell me about your project or idea..." data-mock="true"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-orange-primary hover:bg-orange-light py-4 rounded-xl font-semibold transition-all duration-300 animate-glow" data-event="click:handleSubmit">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ContactSection -->
+    
+    <!-- Footer -->
+    <!-- @COMPONENT: Footer [social links and copyright] -->
+    <footer class="bg-dark-secondary border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="text-2xl font-bold mb-2">
+                        <span class="text-orange-primary">T</span>alha <span class="text-orange-primary">R</span>ehman
+                    </div>
+                    <div class="text-text-muted">Machine Learning Engineer</div>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="w-12 h-12 bg-dark-accent rounded-xl flex items-center justify-center hover:bg-orange-primary/20 hover:text-orange-primary transition-all duration-300" data-mock="true">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 bg-dark-accent rounded-xl flex items-center justify-center hover:bg-orange-primary/20 hover:text-orange-primary transition-all duration-300" data-mock="true">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 bg-dark-accent rounded-xl flex items-center justify-center hover:bg-orange-primary/20 hover:text-orange-primary transition-all duration-300" data-mock="true">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 bg-dark-accent rounded-xl flex items-center justify-center hover:bg-orange-primary/20 hover:text-orange-primary transition-all duration-300" data-mock="true">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-text-muted">
+                <p>&copy; 2024 Talha Rehman. All rights reserved. Built with passion for AI and innovation.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+    
+    <script>
+        // TODO: Implement business logic, API calls, and state management
+        (function() {
+            // Custom Cursor
+            const cursorDot = document.getElementById('cursor-dot');
+            const cursorOutline = document.getElementById('cursor-outline');
+            
+            document.addEventListener('mousemove', (e) => {
+                cursorDot.style.left = e.clientX + 'px';
+                cursorDot.style.top = e.clientY + 'px';
+                
+                cursorOutline.style.left = (e.clientX - 20) + 'px';
+                cursorOutline.style.top = (e.clientY - 20) + 'px';
+            });
+            
+            // Progress Bar
+            const progressBar = document.getElementById('progress-bar');
+            
+            window.addEventListener('scroll', () => {
+                const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+                progressBar.style.width = scrolled + '%';
+            });
+            
+            // Theme Toggle
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = document.getElementById('theme-icon');
+            
+            themeToggle.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+                if (document.documentElement.classList.contains('dark')) {
+                    themeIcon.className = 'fas fa-sun';
+                } else {
+                    themeIcon.className = 'fas fa-moon';
+                }
+            });
+            
+            // Mobile Menu Toggle
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Smooth Scrolling for Navigation Links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Scroll-triggered animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.section-reveal').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Interactive hover effects for project cards
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+            
+            // Tech badge hover effects
+            document.querySelectorAll('.tech-badge').forEach(badge => {
+                badge.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.1)';
+                });
+                
+                badge.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

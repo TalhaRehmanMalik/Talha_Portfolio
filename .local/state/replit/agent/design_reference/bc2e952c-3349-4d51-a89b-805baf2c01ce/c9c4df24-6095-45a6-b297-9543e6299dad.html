@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talha Rehman - Portfolio | ML Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'dark-primary': '#0F0F0F',
+                        'dark-secondary': '#1A1A1A',
+                        'dark-accent': '#2A2A2A',
+                        'orange-accent': '#FF6B35',
+                        'orange-hover': '#FF5722',
+                        'text-primary': '#FFFFFF',
+                        'text-secondary': '#B0B0B0',
+                        'text-muted': '#808080',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(40px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        glow: {
+                            '0%': { box-shadow: '0 0 20px rgba(255, 107, 53, 0.5)' },
+                            '100%': { box-shadow: '0 0 30px rgba(255, 107, 53, 0.8)' },
+                        },
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+<body class="font-inter bg-dark-primary text-text-primary overflow-x-hidden" data-theme="dark">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-dark-primary/90 backdrop-blur-md border-b border-dark-accent">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-xl font-bold text-orange-accent">TR</div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-text-secondary hover:text-orange-accent transition-colors duration-300">Home</a>
+                    <a href="#about" class="nav-link text-text-secondary hover:text-orange-accent transition-colors duration-300">About</a>
+                    <a href="#projects" class="nav-link text-text-secondary hover:text-orange-accent transition-colors duration-300">Projects</a>
+                    <a href="#skills" class="nav-link text-text-secondary hover:text-orange-accent transition-colors duration-300">Skills</a>
+                    <a href="#contact" class="nav-link text-text-secondary hover:text-orange-accent transition-colors duration-300">Contact</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-dark-secondary hover:bg-dark-accent transition-colors duration-300">
+                        <i class="fas fa-moon text-orange-accent"></i>
+                    </button>
+                    <button class="md:hidden p-2 rounded-lg bg-dark-secondary hover:bg-dark-accent transition-colors duration-300">
+                        <i class="fas fa-bars text-orange-accent"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Background Slideshow -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Slideshow -->
+        <div class="absolute inset-0 z-0">
+            <!-- Machine learning visualization with neural networks and data points -->
+            <div class="slideshow-image absolute inset-0 opacity-100 transition-opacity duration-2000" 
+                 style="background-image: linear-gradient(rgba(15, 15, 15, 0.7), rgba(15, 15, 15, 0.7)), url('https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080'); background-size: cover; background-position: center;"></div>
+            
+            <!-- Modern developer workspace with multiple monitors and coding environment -->
+            <div class="slideshow-image absolute inset-0 opacity-0 transition-opacity duration-2000" 
+                 style="background-image: linear-gradient(rgba(15, 15, 15, 0.7), rgba(15, 15, 15, 0.7)), url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080'); background-size: cover; background-position: center;"></div>
+            
+            <!-- Abstract neural network visualization with glowing connections -->
+            <div class="slideshow-image absolute inset-0 opacity-0 transition-opacity duration-2000" 
+                 style="background-image: linear-gradient(rgba(15, 15, 15, 0.7), rgba(15, 15, 15, 0.7)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080'); background-size: cover; background-position: center;"></div>
+            
+            <!-- Professional coding setup with terminal and development tools -->
+            <div class="slideshow-image absolute inset-0 opacity-0 transition-opacity duration-2000" 
+                 style="background-image: linear-gradient(rgba(15, 15, 15, 0.7), rgba(15, 15, 15, 0.7)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080'); background-size: cover; background-position: center;"></div>
+            
+            <!-- Data science visualization with charts and analytics -->
+            <div class="slideshow-image absolute inset-0 opacity-0 transition-opacity duration-2000" 
+                 style="background-image: linear-gradient(rgba(15, 15, 15, 0.7), rgba(15, 15, 15, 0.7)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080'); background-size: cover; background-position: center;"></div>
+            
+            <!-- Deep learning and AI concept visualization -->
+            <div class="slideshow-image absolute inset-0 opacity-0 transition-opacity duration-2000" 
+                 style="background-image: linear-gradient(rgba(15, 15, 15, 0.7), rgba(15, 15, 15, 0.7)), url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080'); background-size: cover; background-position: center;"></div>
+        </div>
+        
+        <!-- Hero Content -->
+        <div class="relative z-10 text-center max-w-4xl mx-auto px-6">
+            <div class="animate-fade-in">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                    <span class="text-text-primary">Talha</span>
+                    <span class="text-orange-accent">Rehman</span>
+                </h1>
+                <h2 class="text-xl md:text-2xl text-text-secondary mb-8 font-medium">
+                    Information Technology Undergraduate | Aspiring ML Engineer
+                </h2>
+                <p class="text-lg text-text-muted mb-12 max-w-2xl mx-auto leading-relaxed">
+                    Passionate about creating intelligent solutions through machine learning and data science. 
+                    Currently pursuing BS IT with a focus on AI/ML technologies.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#projects" class="bg-orange-accent hover:bg-orange-hover text-dark-primary px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 animate-glow">
+                        View My Work
+                    </a>
+                    <a href="#contact" class="border border-orange-accent text-orange-accent hover:bg-orange-accent hover:text-dark-primary px-8 py-4 rounded-lg font-semibold transition-all duration-300">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-orange-accent text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-dark-secondary">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="animate-fade-in">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-8">
+                        About <span class="text-orange-accent">Me</span>
+                    </h2>
+                    <p class="text-lg text-text-secondary mb-6 leading-relaxed">
+                        I'm a motivated Information Technology undergraduate at the University of the Punjab, 
+                        expected to graduate in 2026. My passion lies in developing data-driven solutions 
+                        using cutting-edge AI and ML technologies.
+                    </p>
+                    <p class="text-lg text-text-secondary mb-8 leading-relaxed">
+                        With hands-on experience in Python, TensorFlow, and various ML frameworks, 
+                        I've successfully developed projects ranging from image classification to predictive modeling, 
+                        achieving impressive accuracy rates and real-world applicability.
+                    </p>
+                    
+                    <!-- Education -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold text-orange-accent mb-4">Education</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-3 h-3 bg-orange-accent rounded-full mt-2 flex-shrink-0"></div>
+                                <div>
+                                    <h4 class="font-semibold text-text-primary">Bachelor of Science in Information Technology</h4>
+                                    <p class="text-text-secondary">University of the Punjab | Expected 2026</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-3 h-3 bg-orange-accent rounded-full mt-2 flex-shrink-0"></div>
+                                <div>
+                                    <h4 class="font-semibold text-text-primary">Intermediate in Computer Science</h4>
+                                    <p class="text-text-secondary">Superior College, Lahore | 2019 - 2021</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certification -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-orange-accent mb-4">Certification</h3>
+                        <div class="flex items-center space-x-3 bg-dark-accent p-4 rounded-lg">
+                            <i class="fab fa-microsoft text-blue-500 text-2xl"></i>
+                            <div>
+                                <h4 class="font-semibold text-text-primary">Microsoft Certified: Azure AI Fundamentals</h4>
+                                <p class="text-text-secondary text-sm">Cloud AI & Machine Learning</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Profile Image/Stats -->
+                <div class="animate-slide-up">
+                    <div class="bg-dark-accent rounded-2xl p-8 border border-orange-accent/20">
+                        <div class="grid grid-cols-2 gap-6 text-center">
+                            <div>
+                                <div class="text-3xl font-bold text-orange-accent mb-2">3+</div>
+                                <div class="text-text-secondary">ML Projects</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold text-orange-accent mb-2">94%</div>
+                                <div class="text-text-secondary">Best Accuracy</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold text-orange-accent mb-2">2026</div>
+                                <div class="text-text-secondary">Graduation</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold text-orange-accent mb-2">1</div>
+                                <div class="text-text-secondary">Certification</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-dark-primary">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Featured <span class="text-orange-accent">Projects</span>
+                </h2>
+                <p class="text-lg text-text-secondary max-w-2xl mx-auto">
+                    Here are some of my recent projects showcasing my expertise in machine learning, 
+                    data science, and software development.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1: Potato Disease Classification -->
+                <div class="bg-dark-secondary rounded-xl overflow-hidden border border-dark-accent hover:border-orange-accent/50 transition-all duration-300 transform hover:-translate-y-2 group">
+                    <!-- Machine learning model training with neural network visualization -->
+                    <div class="h-48 bg-gradient-to-br from-orange-accent/20 to-dark-accent"
+                         style="background-image: linear-gradient(rgba(255, 107, 53, 0.1), rgba(42, 42, 42, 0.8)), url('https://images.unsplash.com/photo-1586281380349-632531db7ed4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400'); background-size: cover; background-position: center;"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 group-hover:text-orange-accent transition-colors duration-300">
+                            Potato Disease Classification
+                        </h3>
+                        <p class="text-text-secondary mb-4 leading-relaxed">
+                            Deep learning CNN model for classifying potato leaf diseases from images. 
+                            Achieved 94.17% test accuracy and 97.92% validation accuracy using data augmentation techniques.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-orange-accent/20 text-orange-accent rounded-full text-sm">TensorFlow</span>
+                            <span class="px-3 py-1 bg-orange-accent/20 text-orange-accent rounded-full text-sm">CNN</span>
+                            <span class="px-3 py-1 bg-orange-accent/20 text-orange-accent rounded-full text-sm">Data Augmentation</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="text-sm text-text-muted">
+                                <i class="fas fa-chart-line text-green-500 mr-1"></i>
+                                94.17% Accuracy
+                            </div>
+                            <div class="flex space-x-3">
+                                <a href="#" class="text-text-secondary hover:text-orange-accent transition-colors duration-300">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="text-text-secondary hover:text-orange-accent transition-colors duration-300">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Heart Disease Prediction -->
+                <div class="bg-dark-secondary rounded-xl overflow-hidden border border-dark-accent hover:border-orange-accent/50 transition-all duration-300 transform hover:-translate-y-2 group">
+                    <!-- Medical data analysis and healthcare analytics visualization -->
+                    <div class="h-48 bg-gradient-to-br from-orange-accent/20 to-dark-accent"
+                         style="background-image: linear-gradient(rgba(255, 107, 53, 0.1), rgba(42, 42, 42, 0.8)), url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400'); background-size: cover; background-position: center;"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 group-hover:text-orange-accent transition-colors duration-300">
+                            Heart Disease Prediction System
+                        </h3>
+                        <p class="text-text-secondary mb-4 leading-relaxed">
+                            Machine learning model using logistic regression to predict heart disease from patient data. 
+                            Processed 13 clinical features achieving ~90% accuracy.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-orange-accent/20 text-orange-accent rounded-full text-sm">Python</span>
+                            <span class="px-3 py-1 bg-orange-accent/20 text-orange-accent rounded-full text-sm">Scikit-learn</span>
+                            <span class="px-3 py-1 bg-orange-accent/20 text-orange-accent rounded-full text-sm">Logistic Regression</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="text-sm text-text-muted">
+                                <i class="fas fa-heartbeat text-red-500 mr-1"></i>
+                                ~90% Accuracy
+                            </div>
+                            <div class="flex space-x-3">
+                                <a href="#" class="text-text-secondary hover:text-orange-accent transition-colors duration-300">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="text-text-secondary hover:text-orange-accent transition-colors duration-300">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Movie Recommender System -->
+                <div class="bg-dark-secondary rounded-xl overflow-hidden border border-dark-accent hover:border-orange-accent/50 transition-all duration-300 transform hover:-translate-y-2 group">
+                    <!-- Recommendation system and collaborative filtering visualization -->
+                    <div class="h-48 bg-gradient-to-br from-orange-accent/20 to-dark-accent"
+                         style="background-image: linear-gradient(rgba(255, 107, 53, 0.1), rgba(42, 42, 42, 0.8)), url('https://pixabay.com/get/gf1b66031a93ad5c597a3f2f42ca49b983da1d9eab24bc94ef2c9c381878e99df86be097e325777ea7d37f18b3ff7caf7884e113292e7ac50228bd323f2a67462_1280.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 group-hover:text-orange-accent transition-colors duration-300">
+                            Movie Recommender System
+                        </h3>
+                        <p class="text-text-secondary mb-4 leading-relaxed">
+                            Collaborative filtering recommendation system using cosine similarity. 
+                            Built user-movie rating matrix to generate personalized movie recommendations.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-orange-accent/20 text-orange-accent rounded-full text-sm">Python</span>
+                            <span class="px-3 py-1 bg-orange-accent/20 text-orange-accent rounded-full text-sm">Pandas</span>
+                            <span class="px-3 py-1 bg-orange-accent/20 text-orange-accent rounded-full text-sm">Cosine Similarity</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="text-sm text-text-muted">
+                                <i class="fas fa-film text-purple-500 mr-1"></i>
+                                Collaborative Filtering
+                            </div>
+                            <div class="flex space-x-3">
+                                <a href="#" class="text-text-secondary hover:text-orange-accent transition-colors duration-300">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="text-text-secondary hover:text-orange-accent transition-colors duration-300">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-dark-secondary">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Technical <span class="text-orange-accent">Skills</span>
+                </h2>
+                <p class="text-lg text-text-secondary max-w-2xl mx-auto">
+                    My expertise spans across various programming languages, frameworks, 
+                    and tools in the AI/ML ecosystem.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Skill Cards with Interactive Hover Effects -->
+                <div class="skill-card bg-dark-accent rounded-xl p-6 border border-dark-primary hover:border-orange-accent/50 transition-all duration-300 cursor-pointer" data-percentage="80">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-3">
+                            <i class="fab fa-python text-blue-500 text-2xl"></i>
+                            <h3 class="text-lg font-semibold">Python</h3>
+                        </div>
+                        <span class="percentage-display text-orange-accent font-bold opacity-0 transition-opacity duration-300">80%</span>
+                    </div>
+                    <div class="w-full bg-dark-primary rounded-full h-2">
+                        <div class="skill-progress bg-orange-accent h-2 rounded-full transition-all duration-500" style="width: 0%;" data-width="80%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card bg-dark-accent rounded-xl p-6 border border-dark-primary hover:border-orange-accent/50 transition-all duration-300 cursor-pointer" data-percentage="75">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-brain text-purple-500 text-2xl"></i>
+                            <h3 class="text-lg font-semibold">Machine Learning</h3>
+                        </div>
+                        <span class="percentage-display text-orange-accent font-bold opacity-0 transition-opacity duration-300">75%</span>
+                    </div>
+                    <div class="w-full bg-dark-primary rounded-full h-2">
+                        <div class="skill-progress bg-orange-accent h-2 rounded-full transition-all duration-500" style="width: 0%;" data-width="75%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card bg-dark-accent rounded-xl p-6 border border-dark-primary hover:border-orange-accent/50 transition-all duration-300 cursor-pointer" data-percentage="70">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-network-wired text-green-500 text-2xl"></i>
+                            <h3 class="text-lg font-semibold">Deep Learning</h3>
+                        </div>
+                        <span class="percentage-display text-orange-accent font-bold opacity-0 transition-opacity duration-300">70%</span>
+                    </div>
+                    <div class="w-full bg-dark-primary rounded-full h-2">
+                        <div class="skill-progress bg-orange-accent h-2 rounded-full transition-all duration-500" style="width: 0%;" data-width="70%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card bg-dark-accent rounded-xl p-6 border border-dark-primary hover:border-orange-accent/50 transition-all duration-300 cursor-pointer" data-percentage="70">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-3">
+                            <i class="fab fa-google text-yellow-500 text-2xl"></i>
+                            <h3 class="text-lg font-semibold">TensorFlow</h3>
+                        </div>
+                        <span class="percentage-display text-orange-accent font-bold opacity-0 transition-opacity duration-300">70%</span>
+                    </div>
+                    <div class="w-full bg-dark-primary rounded-full h-2">
+                        <div class="skill-progress bg-orange-accent h-2 rounded-full transition-all duration-500" style="width: 0%;" data-width="70%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card bg-dark-accent rounded-xl p-6 border border-dark-primary hover:border-orange-accent/50 transition-all duration-300 cursor-pointer" data-percentage="70">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-chart-line text-orange-500 text-2xl"></i>
+                            <h3 class="text-lg font-semibold">Scikit-learn</h3>
+                        </div>
+                        <span class="percentage-display text-orange-accent font-bold opacity-0 transition-opacity duration-300">70%</span>
+                    </div>
+                    <div class="w-full bg-dark-primary rounded-full h-2">
+                        <div class="skill-progress bg-orange-accent h-2 rounded-full transition-all duration-500" style="width: 0%;" data-width="70%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card bg-dark-accent rounded-xl p-6 border border-dark-primary hover:border-orange-accent/50 transition-all duration-300 cursor-pointer" data-percentage="65">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-database text-blue-600 text-2xl"></i>
+                            <h3 class="text-lg font-semibold">Data Analysis</h3>
+                        </div>
+                        <span class="percentage-display text-orange-accent font-bold opacity-0 transition-opacity duration-300">65%</span>
+                    </div>
+                    <div class="w-full bg-dark-primary rounded-full h-2">
+                        <div class="skill-progress bg-orange-accent h-2 rounded-full transition-all duration-500" style="width: 0%;" data-width="65%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Skills -->
+            <div class="mt-12 text-center">
+                <h3 class="text-xl font-semibold mb-6 text-orange-accent">Other Technologies</h3>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <span class="px-4 py-2 bg-dark-accent text-text-secondary rounded-full border border-dark-primary">C/C++</span>
+                    <span class="px-4 py-2 bg-dark-accent text-text-secondary rounded-full border border-dark-primary">Pandas</span>
+                    <span class="px-4 py-2 bg-dark-accent text-text-secondary rounded-full border border-dark-primary">NumPy</span>
+                    <span class="px-4 py-2 bg-dark-accent text-text-secondary rounded-full border border-dark-primary">Matplotlib</span>
+                    <span class="px-4 py-2 bg-dark-accent text-text-secondary rounded-full border border-dark-primary">Seaborn</span>
+                    <span class="px-4 py-2 bg-dark-accent text-text-secondary rounded-full border border-dark-primary">OpenCV</span>
+                    <span class="px-4 py-2 bg-dark-accent text-text-secondary rounded-full border border-dark-primary">Jupyter</span>
+                    <span class="px-4 py-2 bg-dark-accent text-text-secondary rounded-full border border-dark-primary">MySQL</span>
+                    <span class="px-4 py-2 bg-dark-accent text-text-secondary rounded-full border border-dark-primary">Streamlit</span>
+                    <span class="px-4 py-2 bg-dark-accent text-text-secondary rounded-full border border-dark-primary">Google Colab</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CV Download Section -->
+    <section class="py-20 bg-dark-primary">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="bg-dark-secondary rounded-2xl p-12 border border-orange-accent/20">
+                <div class="mb-8">
+                    <i class="fas fa-file-download text-orange-accent text-5xl mb-6"></i>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Download My <span class="text-orange-accent">Resume</span>
+                    </h2>
+                    <p class="text-lg text-text-secondary max-w-2xl mx-auto">
+                        Get a detailed overview of my education, projects, skills, and experience. 
+                        Perfect for recruiters and potential collaborators.
+                    </p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="attached_assets/talha rehman cv_1756144048397.pdf" download="Talha_Rehman_Resume.pdf" 
+                       class="bg-orange-accent hover:bg-orange-hover text-dark-primary px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 animate-glow flex items-center space-x-2">
+                        <i class="fas fa-download"></i>
+                        <span>Download CV</span>
+                    </a>
+                    <a href="mailto:talharehman41061@gmail.com" 
+                       class="border border-orange-accent text-orange-accent hover:bg-orange-accent hover:text-dark-primary px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center space-x-2">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email Me</span>
+                    </a>
+                </div>
+                <div class="mt-6 text-sm text-text-muted">
+                    <i class="fas fa-clock mr-1"></i>
+                    Last updated: January 2025
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-dark-secondary">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Get In <span class="text-orange-accent">Touch</span>
+                </h2>
+                <p class="text-lg text-text-secondary max-w-2xl mx-auto">
+                    I'm always open to discussing new opportunities, collaborations, 
+                    or just having a chat about technology and innovation.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <div class="flex items-center space-x-4 p-6 bg-dark-accent rounded-xl border border-dark-primary hover:border-orange-accent/50 transition-all duration-300">
+                        <div class="w-12 h-12 bg-orange-accent/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-envelope text-orange-accent text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold mb-1">Email</h3>
+                            <a href="mailto:talharehman41061@gmail.com" class="text-text-secondary hover:text-orange-accent transition-colors duration-300">
+                                talharehman41061@gmail.com
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center space-x-4 p-6 bg-dark-accent rounded-xl border border-dark-primary hover:border-orange-accent/50 transition-all duration-300">
+                        <div class="w-12 h-12 bg-orange-accent/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-phone text-orange-accent text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold mb-1">Phone</h3>
+                            <a href="tel:+923214361397" class="text-text-secondary hover:text-orange-accent transition-colors duration-300">
+                                +92-321-4361397
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center space-x-4 p-6 bg-dark-accent rounded-xl border border-dark-primary hover:border-orange-accent/50 transition-all duration-300">
+                        <div class="w-12 h-12 bg-orange-accent/20 rounded-lg flex items-center justify-center">
+                            <i class="fab fa-linkedin text-orange-accent text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold mb-1">LinkedIn</h3>
+                            <a href="https://linkedin.com/in/talha-rehman-7a3178221" target="_blank" class="text-text-secondary hover:text-orange-accent transition-colors duration-300">
+                                linkedin.com/in/talha-rehman-7a3178221
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center space-x-4 p-6 bg-dark-accent rounded-xl border border-dark-primary hover:border-orange-accent/50 transition-all duration-300">
+                        <div class="w-12 h-12 bg-orange-accent/20 rounded-lg flex items-center justify-center">
+                            <i class="fab fa-github text-orange-accent text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold mb-1">GitHub</h3>
+                            <a href="https://github.com/TalhaRehmanMalik" target="_blank" class="text-text-secondary hover:text-orange-accent transition-colors duration-300">
+                                github.com/TalhaRehmanMalik
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="bg-dark-accent rounded-xl p-8 border border-dark-primary">
+                    <h3 class="text-xl font-semibold mb-6">Send a Message</h3>
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-text-secondary mb-2">Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-3 bg-dark-primary border border-dark-accent rounded-lg focus:border-orange-accent focus:outline-none transition-colors duration-300 text-text-primary">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-text-secondary mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 bg-dark-primary border border-dark-accent rounded-lg focus:border-orange-accent focus:outline-none transition-colors duration-300 text-text-primary">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-text-secondary mb-2">Message</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 bg-dark-primary border border-dark-accent rounded-lg focus:border-orange-accent focus:outline-none transition-colors duration-300 text-text-primary resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-orange-accent hover:bg-orange-hover text-dark-primary py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-dark-primary border-t border-dark-accent">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="text-center md:text-left mb-6 md:mb-0">
+                    <div class="text-2xl font-bold text-orange-accent mb-2">Talha Rehman</div>
+                    <p class="text-text-secondary">Building the future with AI & Machine Learning</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://linkedin.com/in/talha-rehman-7a3178221" target="_blank" class="text-text-secondary hover:text-orange-accent transition-colors duration-300">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="https://github.com/TalhaRehmanMalik" target="_blank" class="text-text-secondary hover:text-orange-accent transition-colors duration-300">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="mailto:talharehman41061@gmail.com" class="text-text-secondary hover:text-orange-accent transition-colors duration-300">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-dark-accent text-center text-text-muted text-sm">
+                <p>&copy; 2025 Talha Rehman. All rights reserved. | Built with passion for innovation</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            // Background Slideshow
+            const images = document.querySelectorAll('.slideshow-image');
+            let currentIndex = 0;
+
+            function changeBackground() {
+                images[currentIndex].style.opacity = '0';
+                currentIndex = (currentIndex + 1) % images.length;
+                images[currentIndex].style.opacity = '1';
+            }
+
+            // Start slideshow
+            setInterval(changeBackground, 4000);
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Skill cards hover effects
+            document.querySelectorAll('.skill-card').forEach(card => {
+                const progress = card.querySelector('.skill-progress');
+                const percentage = card.querySelector('.percentage-display');
+                const targetWidth = progress.getAttribute('data-width');
+
+                card.addEventListener('mouseenter', function() {
+                    progress.style.width = targetWidth;
+                    percentage.style.opacity = '1';
+                });
+
+                card.addEventListener('mouseleave', function() {
+                    progress.style.width = '0%';
+                    percentage.style.opacity = '0';
+                });
+            });
+
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for animation
+            document.querySelectorAll('.animate-fade-in, .animate-slide-up').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                observer.observe(el);
+            });
+
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+            const icon = themeToggle.querySelector('i');
+
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = body.getAttribute('data-theme');
+                if (currentTheme === 'dark') {
+                    // Switch to light mode - for future implementation
+                    // Currently maintaining dark theme as requested
+                    body.setAttribute('data-theme', 'dark');
+                    icon.className = 'fas fa-moon text-orange-accent';
+                } else {
+                    body.setAttribute('data-theme', 'dark');
+                    icon.className = 'fas fa-moon text-orange-accent';
+                }
+            });
+
+            // Form submission (placeholder)
+            document.querySelector('form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                // TODO: Implement form submission logic
+                alert('Thank you for your message! I will get back to you soon.');
+                this.reset();
+            });
+
+            // Active navigation highlighting
+            function updateActiveNav() {
+                const sections = document.querySelectorAll('section[id]');
+                const navLinks = document.querySelectorAll('.nav-link');
+                
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('text-orange-accent');
+                    link.classList.add('text-text-secondary');
+                    if (link.getAttribute('href').substring(1) === current) {
+                        link.classList.remove('text-text-secondary');
+                        link.classList.add('text-orange-accent');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', updateActiveNav);
+            updateActiveNav(); // Initial call
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Johnson - Full Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#2563EB',
+                        'primary-dark': '#1D4ED8',
+                        'secondary': '#64748B',
+                        'accent': '#06B6D4',
+                        'success': '#10B981',
+                        'dark': '#1E293B',
+                        'light-gray': '#F8FAFC'
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(40px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+<body class="font-inter bg-white text-gray-800 overflow-x-hidden">
+    <!-- @COMPONENT: NavigationHeader -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="#home" class="text-xl font-bold text-dark">Alex Johnson</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="nav-link text-secondary hover:text-primary transition-colors duration-200">Home</a>
+                        <a href="#about" class="nav-link text-secondary hover:text-primary transition-colors duration-200">About</a>
+                        <a href="#skills" class="nav-link text-secondary hover:text-primary transition-colors duration-200">Skills</a>
+                        <a href="#projects" class="nav-link text-secondary hover:text-primary transition-colors duration-200">Projects</a>
+                        <a href="#contact" class="nav-link text-secondary hover:text-primary transition-colors duration-200">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-secondary hover:text-primary">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-200 hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 text-secondary hover:text-primary">Home</a>
+                <a href="#about" class="block px-3 py-2 text-secondary hover:text-primary">About</a>
+                <a href="#skills" class="block px-3 py-2 text-secondary hover:text-primary">Skills</a>
+                <a href="#projects" class="block px-3 py-2 text-secondary hover:text-primary">Projects</a>
+                <a href="#contact" class="block px-3 py-2 text-secondary hover:text-primary">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <!-- @END_COMPONENT: NavigationHeader -->
+
+    <!-- @COMPONENT: HeroSection -->
+    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-light-gray to-white pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="animate-fade-in">
+                <!-- Professional workspace with modern setup -->
+                <div class="mb-8 relative">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=400" alt="Professional workspace" class="mx-auto rounded-full w-32 h-32 object-cover shadow-2xl border-4 border-white" data-mock="true">
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold text-dark mb-6 leading-tight">
+                    Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Alex Johnson</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-secondary mb-8 max-w-3xl mx-auto leading-relaxed">
+                    Full Stack Developer crafting digital experiences with modern technologies and clean code
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+                    <a href="#projects" class="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg">
+                        View My Work
+                    </a>
+                    <a href="#contact" class="border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105">
+                        Get In Touch
+                    </a>
+                </div>
+                <div class="flex justify-center space-x-6">
+                    <a href="#" class="text-secondary hover:text-primary text-2xl transition-colors duration-200" data-mock="true">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-secondary hover:text-primary text-2xl transition-colors duration-200" data-mock="true">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="text-secondary hover:text-primary text-2xl transition-colors duration-200" data-mock="true">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-secondary hover:text-primary text-2xl transition-colors duration-200" data-mock="true">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-secondary text-xl"></i>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: HeroSection -->
+
+    <!-- @COMPONENT: AboutSection -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-dark mb-6">About Me</h2>
+                <p class="text-xl text-secondary max-w-3xl mx-auto">
+                    Passionate developer with 5+ years of experience building scalable web applications
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="animate-slide-up">
+                    <!-- Modern technology setup with multiple monitors -->
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" alt="Modern developer workspace setup" class="rounded-2xl shadow-2xl w-full h-auto" data-mock="true">
+                </div>
+                <div class="animate-slide-up">
+                    <h3 class="text-3xl font-bold text-dark mb-6">Creating Digital Solutions</h3>
+                    <p class="text-lg text-secondary mb-6 leading-relaxed">
+                        I specialize in building modern web applications using cutting-edge technologies. 
+                        My passion lies in creating user-centric solutions that are both beautiful and functional.
+                    </p>
+                    <p class="text-lg text-secondary mb-8 leading-relaxed">
+                        When I'm not coding, you can find me exploring new technologies, contributing to open source projects, 
+                        or mentoring aspiring developers in my community.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="bg-light-gray rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-200">
+                            <div class="text-3xl font-bold text-primary mb-2" data-bind="stats.projects">50+</div>
+                            <div class="text-secondary">Projects Completed</div>
+                        </div>
+                        <div class="bg-light-gray rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-200">
+                            <div class="text-3xl font-bold text-primary mb-2" data-bind="stats.experience">5+</div>
+                            <div class="text-secondary">Years Experience</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: AboutSection -->
+
+    <!-- @COMPONENT: SkillsSection -->
+    <section id="skills" class="py-20 bg-light-gray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-dark mb-6">Skills & Technologies</h2>
+                <p class="text-xl text-secondary max-w-3xl mx-auto">
+                    A comprehensive toolkit for building modern web applications
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <!-- @MAP: skills.map(skill => ( -->
+                <div class="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up">
+                    <div class="text-4xl mb-4 text-primary">
+                        <i class="fab fa-react" data-mock="true"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-dark mb-2" data-bind="skill.name">React</h3>
+                    <p class="text-secondary text-sm" data-bind="skill.level">Advanced</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up">
+                    <div class="text-4xl mb-4 text-primary">
+                        <i class="fab fa-node-js" data-mock="true"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-dark mb-2" data-bind="skill.name">Node.js</h3>
+                    <p class="text-secondary text-sm" data-bind="skill.level">Advanced</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up">
+                    <div class="text-4xl mb-4 text-primary">
+                        <i class="fab fa-python" data-mock="true"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-dark mb-2" data-bind="skill.name">Python</h3>
+                    <p class="text-secondary text-sm" data-bind="skill.level">Intermediate</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up">
+                    <div class="text-4xl mb-4 text-primary">
+                        <i class="fas fa-database" data-mock="true"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-dark mb-2" data-bind="skill.name">MongoDB</h3>
+                    <p class="text-secondary text-sm" data-bind="skill.level">Advanced</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up">
+                    <div class="text-4xl mb-4 text-primary">
+                        <i class="fab fa-js-square" data-mock="true"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-dark mb-2" data-bind="skill.name">JavaScript</h3>
+                    <p class="text-secondary text-sm" data-bind="skill.level">Expert</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up">
+                    <div class="text-4xl mb-4 text-primary">
+                        <i class="fab fa-aws" data-mock="true"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-dark mb-2" data-bind="skill.name">AWS</h3>
+                    <p class="text-secondary text-sm" data-bind="skill.level">Intermediate</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up">
+                    <div class="text-4xl mb-4 text-primary">
+                        <i class="fab fa-docker" data-mock="true"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-dark mb-2" data-bind="skill.name">Docker</h3>
+                    <p class="text-secondary text-sm" data-bind="skill.level">Advanced</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up">
+                    <div class="text-4xl mb-4 text-primary">
+                        <i class="fab fa-git-alt" data-mock="true"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-dark mb-2" data-bind="skill.name">Git</h3>
+                    <p class="text-secondary text-sm" data-bind="skill.level">Expert</p>
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: SkillsSection -->
+
+    <!-- @COMPONENT: ProjectsSection -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-dark mb-6">Featured Projects</h2>
+                <p class="text-xl text-secondary max-w-3xl mx-auto">
+                    A showcase of my recent work and side projects
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- @MAP: projects.map(project => ( -->
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden animate-slide-up">
+                    <!-- Abstract geometric design with vibrant colors -->
+                    <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400" alt="E-commerce platform project preview" class="w-full h-48 object-cover" data-mock="true">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-3" data-bind="project.title">E-Commerce Platform</h3>
+                        <p class="text-secondary mb-4 leading-relaxed" data-bind="project.description">
+                            A full-stack e-commerce solution built with React, Node.js, and MongoDB featuring user authentication, payment processing, and admin dashboard.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-light-gray text-secondary px-3 py-1 rounded-full text-sm" data-bind="project.tech">React</span>
+                            <span class="bg-light-gray text-secondary px-3 py-1 rounded-full text-sm" data-bind="project.tech">Node.js</span>
+                            <span class="bg-light-gray text-secondary px-3 py-1 rounded-full text-sm" data-bind="project.tech">MongoDB</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-primary hover:text-primary-dark font-semibold transition-colors duration-200" data-mock="true">
+                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                            </a>
+                            <a href="#" class="text-secondary hover:text-dark font-semibold transition-colors duration-200" data-mock="true">
+                                <i class="fab fa-github mr-2"></i>Source
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden animate-slide-up">
+                    <!-- Code development environment with syntax highlighting -->
+                    <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400" alt="Task management app project preview" class="w-full h-48 object-cover" data-mock="true">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-3" data-bind="project.title">Task Management App</h3>
+                        <p class="text-secondary mb-4 leading-relaxed" data-bind="project.description">
+                            A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-light-gray text-secondary px-3 py-1 rounded-full text-sm" data-bind="project.tech">Vue.js</span>
+                            <span class="bg-light-gray text-secondary px-3 py-1 rounded-full text-sm" data-bind="project.tech">Socket.io</span>
+                            <span class="bg-light-gray text-secondary px-3 py-1 rounded-full text-sm" data-bind="project.tech">PostgreSQL</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-primary hover:text-primary-dark font-semibold transition-colors duration-200" data-mock="true">
+                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                            </a>
+                            <a href="#" class="text-secondary hover:text-dark font-semibold transition-colors duration-200" data-mock="true">
+                                <i class="fab fa-github mr-2"></i>Source
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden animate-slide-up">
+                    <!-- Modern technology setup with sleek design -->
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400" alt="Data visualization dashboard project preview" class="w-full h-48 object-cover" data-mock="true">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-3" data-bind="project.title">Analytics Dashboard</h3>
+                        <p class="text-secondary mb-4 leading-relaxed" data-bind="project.description">
+                            An interactive data visualization dashboard with real-time analytics, custom charts, and responsive design for business intelligence.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-light-gray text-secondary px-3 py-1 rounded-full text-sm" data-bind="project.tech">React</span>
+                            <span class="bg-light-gray text-secondary px-3 py-1 rounded-full text-sm" data-bind="project.tech">D3.js</span>
+                            <span class="bg-light-gray text-secondary px-3 py-1 rounded-full text-sm" data-bind="project.tech">Python</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-primary hover:text-primary-dark font-semibold transition-colors duration-200" data-mock="true">
+                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                            </a>
+                            <a href="#" class="text-secondary hover:text-dark font-semibold transition-colors duration-200" data-mock="true">
+                                <i class="fab fa-github mr-2"></i>Source
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#" class="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg" data-mock="true">
+                    View All Projects
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ProjectsSection -->
+
+    <!-- @COMPONENT: ContactSection -->
+    <section id="contact" class="py-20 bg-gradient-to-br from-light-gray to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-dark mb-6">Let's Work Together</h2>
+                <p class="text-xl text-secondary max-w-3xl mx-auto">
+                    Have a project in mind? I'd love to hear about it and discuss how we can bring your ideas to life.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+                <div class="animate-slide-up">
+                    <div class="bg-white rounded-2xl p-8 shadow-xl">
+                        <h3 class="text-2xl font-bold text-dark mb-6">Send me a message</h3>
+                        <form class="space-y-6" data-event="submit:handleContactForm">
+                            <!-- @STATE: formData: {name, email, message} -->
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-dark mb-2">Name</label>
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200" placeholder="Your full name" data-bind="formData.name">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-dark mb-2">Email</label>
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200" placeholder="your@email.com" data-bind="formData.email">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-dark mb-2">Message</label>
+                                <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 resize-none" placeholder="Tell me about your project..." data-bind="formData.message"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white py-3 px-6 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg" data-implementation="Should validate form and send email">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="animate-slide-up">
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-dark mb-6">Get in touch</h3>
+                            <p class="text-secondary leading-relaxed mb-8">
+                                I'm always open to discussing new opportunities, interesting projects, and creative collaborations. 
+                                Whether you're a startup looking to build your first application or an established company seeking to innovate, 
+                                let's connect and explore how we can work together.
+                            </p>
+                        </div>
+
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="bg-primary text-white p-3 rounded-lg">
+                                    <i class="fas fa-envelope text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-dark">Email</h4>
+                                    <p class="text-secondary" data-bind="contact.email">alex.johnson@example.com</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center space-x-4">
+                                <div class="bg-primary text-white p-3 rounded-lg">
+                                    <i class="fas fa-phone text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-dark">Phone</h4>
+                                    <p class="text-secondary" data-bind="contact.phone">+1 (555) 123-4567</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center space-x-4">
+                                <div class="bg-primary text-white p-3 rounded-lg">
+                                    <i class="fas fa-map-marker-alt text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-dark">Location</h4>
+                                    <p class="text-secondary" data-bind="contact.location">San Francisco, CA</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-6">
+                            <h4 class="font-semibold text-dark mb-4">Follow me</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-primary hover:bg-primary-dark text-white p-3 rounded-lg transition-colors duration-200" data-mock="true">
+                                    <i class="fab fa-github text-lg"></i>
+                                </a>
+                                <a href="#" class="bg-primary hover:bg-primary-dark text-white p-3 rounded-lg transition-colors duration-200" data-mock="true">
+                                    <i class="fab fa-linkedin text-lg"></i>
+                                </a>
+                                <a href="#" class="bg-primary hover:bg-primary-dark text-white p-3 rounded-lg transition-colors duration-200" data-mock="true">
+                                    <i class="fab fa-twitter text-lg"></i>
+                                </a>
+                                <a href="#" class="bg-primary hover:bg-primary-dark text-white p-3 rounded-lg transition-colors duration-200" data-mock="true">
+                                    <i class="fab fa-instagram text-lg"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ContactSection -->
+
+    <!-- @COMPONENT: Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-lg mb-4">&copy; 2024 Alex Johnson. All rights reserved.</p>
+                <p class="text-secondary">Built with passion and modern web technologies</p>
+                <div class="mt-6 flex justify-center space-x-6">
+                    <a href="#" class="text-secondary hover:text-white transition-colors duration-200" data-mock="true">Privacy Policy</a>
+                    <a href="#" class="text-secondary hover:text-white transition-colors duration-200" data-mock="true">Terms of Service</a>
+                    <a href="#" class="text-secondary hover:text-white transition-colors duration-200" data-mock="true">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <script>
+        (function() {
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        // Close mobile menu if open
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+
+            // Navbar background opacity on scroll
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('shadow-lg');
+                } else {
+                    navbar.classList.remove('shadow-lg');
+                }
+            });
+
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections for animations
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+            });
+
+            // Form submission handler
+            const contactForm = document.querySelector('form[data-event="submit:handleContactForm"]');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // TODO: Implement form validation and submission logic
+                    alert('Thank you for your message! I\'ll get back to you soon.');
+                });
+            }
+
+            // Add floating animation to skill cards
+            document.querySelectorAll('#skills .bg-white').forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+
+            // Add stagger animation to project cards
+            document.querySelectorAll('#projects .bg-white').forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.2}s`;
+            });
+        })();
+    </script>
+</body>
+</html>
