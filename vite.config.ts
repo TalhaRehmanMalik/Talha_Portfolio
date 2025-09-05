@@ -5,9 +5,9 @@ import path from "path"
 export default defineConfig({
   plugins: [react()],
   root: "client",
-  base: "./", // 👈 ye add kiya for relative paths (Vercel me blank page fix)
+  base: "./", // relative paths for vercel
   build: {
-    outDir: "../dist", // build root ke bahar dist generate karega
+    outDir: "dist", // 👈 yahan "../dist" ki jagah "dist"
     emptyOutDir: true,
   },
   resolve: {
