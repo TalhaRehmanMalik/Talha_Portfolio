@@ -7,7 +7,7 @@ export default defineConfig({
   root: "client",
   base: "./", // relative paths for vercel
   build: {
-    outDir: "dist", // 👈 yahan "../dist" ki jagah "dist"
+    outDir: "dist", // ✅ ab dist client ke andar banega
     emptyOutDir: true,
   },
   resolve: {
